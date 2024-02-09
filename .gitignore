@@ -1,0 +1,84 @@
+/*
+Integrantes:
+Edgar Chavez 
+Henry Hurtado
+Yanine Saavedra
+
+*/
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+double potencia(double b, double ex ){
+ int Result = 1;    
+ if(ex >= 0){
+    for(int i=0; i< ex; i++){
+    Result= Result*b;    
+    } 
+ }else{
+    for(int i = 0; i> ex; i--){
+    Result= Result/b;    
+    
+    } 
+ }     
+     
+    return Result; 
+     
+ }
+int factorial( int n){
+int f= 1;    
+for(int i = 1; i<=n; i++){
+f= f*i;    
+    
+}
+return f;
+}
+int serie(int x, int n){
+
+int p, s; 
+p = 3;    
+for(int i=1; i<=n; i++){
+
+p = p + (potencia(x,(i*2)))/(factorial(i*2));
+
+
+}
+return p;
+}
+
+
+
+int main()
+{   int opc, ex, fac, m, n ;
+    float b, r, re, x; 
+    cout<<"1. Potencia (sin usar pow)"<<endl;
+    cout<<"2. Resolver factoriales"<<endl;
+    cout<<"3. Resuelve la serie: 3 + (x^2)^n/2n!"<<endl;
+    cout<<"Cual de las siguientes opciones necesita?: "; cin>>opc;
+    switch(opc){
+    case 1: 
+    cout<<"Digite el valor de la base: "; cin>> b;
+    cout<<"Cuantas veces desea elevarlo?: "; cin>>ex;
+    r = potencia(b, ex);
+        
+    cout<<"El resultado es: "<<r<<endl;    
+    break;
+    case 2: 
+    cout<<"Digite el valor que quiere sacar factorial: "<<endl; cin>>m;
+    fac=factorial(m);
+    cout<<"El resultado del factorial es: "<<fac<<endl;
+    break;
+    case 3: 
+    cout<<"Digite un valor real x: "<<endl; cin>>x;
+    cout<<"Cuantas veces quiere elevarlo: "<<endl; cin>>n;
+    re = serie(x, n);
+    cout<<"El resultado es: "<<re<<endl;
+    break;
+    default:
+    cout<<"Ingrese una opcion valida"<<endl;
+    break;
+    }
+    
+
+    return 0;
+}
